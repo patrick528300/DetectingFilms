@@ -20,9 +20,20 @@ the model will be discussed later.
 
 ## Examples of the films from the dataset
 Use cvt2pos function in in repository and you can get:
+
+here are the normal films:
 | Negative | Positive |
 |----------|--------- |
 |![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
 |![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
 |![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
 |![Street](images/street.jpeg) | ![Street](images/positive_image_street.jpeg) |
+
+here are the abnormal films:
+| Negative | Positive | Issue | Reason |
+|----------|----------|-------|--------|
+|![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
+|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Liquid Effect |
+|![noise](images/noise.jpeg) | ![noise](images/positive_image_noise.jpeg) | Noise | Underexposure |
+|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fading Liquid Effect |
+|![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding / Improper storage |
