@@ -42,3 +42,6 @@ here are the abnormal films:
 |![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Developer |
 |![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
 |![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
+
+
+**Some films can have more than 1 problem**  **Color shifted photos are considered normal as they are readable**
