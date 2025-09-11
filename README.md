@@ -11,7 +11,7 @@ there are some limitations to use film as files, because of the following reason
    blix(use bleach + fixer), water washing and stabilizing (use stabilizer, optional). Improper chemical processing such as uneven development, fading liquid effect,
    and incomplete reaction can destroy the content of films, making them unable to rea. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
    color patches, accidental imprints, et al.
-3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Recoiling films could lead to dye removal as well.
+3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could lead to dye removal as well due to friction.
 
 
 
@@ -30,12 +30,17 @@ here are the normal films:
 |![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
 |![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
 |![Street](images/street.jpeg) | ![Street](images/positive_image_street.jpeg) |
+|![Street](images/night.jpeg) | ![Street](images/positive_image_night.jpeg) |
+|![Street](images/wait.jpeg) | ![Street](images/positive_image_wait.jpeg) |
+|![Street](images/flower.jpeg) | ![Street](images/positive_image_flower.jpeg) |
 
 here are the abnormal films:
 | Negative | Positive | Issue | Reason |
 |----------|----------|-------|--------|
-|![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
-|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Liquid Effect |
 |![noise](images/noise.jpeg) | ![noise](images/positive_image_noise.jpeg) | Noise | Underexposure |
-|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fading Liquid Effect |
-|![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding / Improper storage |
+|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fading Developer |
+|![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
+|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Developer |
+|![color cast](images/cast.jpeg) | ![color cast](images/positive_image_cast.jpeg) | Color Cast | Fading Developer |
+|![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
+|![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
