@@ -19,7 +19,9 @@ To detect whether a negative film is readable in a short time, I developed and t
 the model will be discussed later.  
 
 ## Examples of the films from the dataset
-Use cvt2pos function in in repository and you can get:
+
+Due to privacy issue, I am not able to provide all the pictures used for training. Here are some examples so you can understand how I define normal and abnormal pictures.  
+Use cvt2pos function in Convert.ipynb to convert from negative films to positive (readable) images. 
 
 here are the normal films:
 | Negative | Positive |
