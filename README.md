@@ -29,7 +29,6 @@ here are the normal films:
 |![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
 |![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
 |![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
-|![Street](images/street.jpeg) | ![Street](images/positive_image_street.jpeg) |
 |![Street](images/mountain.jpeg) | ![Street](images/positive_image_mountain.jpeg) |
 |![Street](images/wait.jpeg) | ![Street](images/positive_image_wait.jpeg) |
 |![Street](images/flower.jpeg) | ![Street](images/positive_image_flower.jpeg) |
