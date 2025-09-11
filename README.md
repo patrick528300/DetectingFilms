@@ -25,5 +25,4 @@ Use cvt2pos function in in repository and you can get:
 |![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
 |![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
 |![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
-|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
-|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
+|![Street](images/street.jpeg) | ![Street](images/positive_image_street.jpeg) |
