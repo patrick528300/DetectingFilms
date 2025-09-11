@@ -30,7 +30,7 @@ here are the normal films:
 |![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
 |![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
 |![Street](images/street.jpeg) | ![Street](images/positive_image_street.jpeg) |
-|![Street](images/night.jpeg) | ![Street](images/positive_image_night.jpeg) |
+|![Street](images/mountain.jpeg) | ![Street](images/positive_image_mountain.jpeg) |
 |![Street](images/wait.jpeg) | ![Street](images/positive_image_wait.jpeg) |
 |![Street](images/flower.jpeg) | ![Street](images/positive_image_flower.jpeg) |
 
@@ -41,6 +41,5 @@ here are the abnormal films:
 |![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fading Developer |
 |![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
 |![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Developer |
-|![color cast](images/cast.jpeg) | ![color cast](images/positive_image_cast.jpeg) | Color Cast | Fading Developer |
 |![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
 |![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
