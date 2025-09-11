@@ -19,5 +19,11 @@ To detect whether a negative film is readable in a short time, I developed and t
 the model will be discussed later.  
 
 ## Examples of the films from the dataset
-
-![Otay Mesa Border] (images/otay_mesa.jpeg)
+Use cvt2pos function in in repository and you can get:
+| Negative | Positive |
+|----------|--------- |
+|![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
+|![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
+|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
+|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
+|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
