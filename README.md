@@ -44,4 +44,6 @@ here are the abnormal films:
 |![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
 
 
-**Some films can have more than 1 problem**  **Color shifted photos are considered normal as they are readable**
+**Some films can have more than 1 problem.**
+
+**Color shifted photos are considered normal as they are readable.**
