@@ -75,7 +75,9 @@ Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypa
 7. Test the model on the test data batches. Compute the accuracy rate, f1 score, precision rate, and recall rate. Then print all the misclassified pictures for further correction.
 
 ## Results and Analysis
-<img width="533" height="381" alt="image" src="https://github.com/user-attachments/assets/cc349f2d-61b4-4bb4-a1c7-e675c6102079" />
+This is the plot about the changes of train loss, val loss, accuracy rate, and f1 score in the training 10 epoches.
+**train loss**
+
 
 
 
