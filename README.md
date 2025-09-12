@@ -45,9 +45,10 @@ here are the abnormal films:
 
 **Additional Info**
 
-1. Some films can have more than 1 problem.
-2. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
-3. Slightly color-shifted photos are considered normal as they are readable.
+1. Normal:Abonormal ~ 7:3 
+2. Some films can have more than 1 problem.
+3. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
+4. Slightly color-shifted photos are considered normal as they are readable.
 
 ## Model Structure
 
@@ -64,6 +65,14 @@ The resnet 18 sequential network consists of: (reference from https://d2l.ai/cha
 Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypass -> Resnet Block w/ bypass -> Resnet Block w/o bypass -> Resnet Block w/ bypass -> Resnet Block w/o bypass - >Resnet Block w/ bypass -> Resnet Block w/o bypass -> AveragePool -> FC layer
 
 ## Training Pipeline
+1. Collect photos of the negatives, and use cvt2pos function to obtain their positive images. Label the condition of films manually (eg, 1 for normal, 0 for abnormal) 
+2. Load the same photos of film clips into two datasets. One is pandas.DataFrame, used for retrieving pictures given indices.  Another one is a Custumized data set used for data split into different batches for training and testing.
+3. Transform the pictures in Custumized data set to be of the same shape (244 x 244), then split them into training and teating batches.
+4. Create Resnet Block and ResNet18.
+5. Train the model for 10 epoches. For each epoch, test the model on the test data batches, and record the accuracy rate, training loss, validation loss, and f1 score. Use AdamW as the optimizer. Use ReduceLROnPlateau to regulate the learning rate in case the learning performance gets stuck. F1 score is an estimator when both classes (normal, abnormal) is not even.
+6. Plot the changes of accuracy rate, training loss, validation loss, and F1 score in the 10 epoches. Plot the changes of learning rate as a reference.
+7. Test the model on the test data batches. Compute the accuracy rate, f1 score, precision rate, and recall rate. Then print all the misclassified pictures for further correction.
+
 
 
 
