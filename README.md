@@ -49,6 +49,7 @@ here are the abnormal films:
 2. Some films can have more than 1 problem.
 3. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
 4. Slightly color-shifted photos are considered normal as they are readable.
+5. All 494 film clips were taken by me between July and September in 2025. I used Nikon F2 and Nikon Nikkormat FT3 as my cameras, and Kodak Gold 200, Kodak UltraMax 400, Kodak ColorPlus 200, and Fujifim 400 for my color negatives. All color negatives were developed by me and retaken by phone. 
 
 ## Model Structure
 
@@ -72,6 +73,9 @@ Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypa
 5. Train the model for 10 epoches. For each epoch, test the model on the test data batches, and record the accuracy rate, training loss, validation loss, and f1 score. Use AdamW as the optimizer. Use ReduceLROnPlateau to regulate the learning rate in case the learning performance gets stuck. F1 score is an estimator when both classes (normal, abnormal) is not even.
 6. Plot the changes of accuracy rate, training loss, validation loss, and F1 score in the 10 epoches. Plot the changes of learning rate as a reference.
 7. Test the model on the test data batches. Compute the accuracy rate, f1 score, precision rate, and recall rate. Then print all the misclassified pictures for further correction.
+
+## Results and Analysis
+<img width="533" height="381" alt="image" src="https://github.com/user-attachments/assets/cc349f2d-61b4-4bb4-a1c7-e675c6102079" />
 
 
 
