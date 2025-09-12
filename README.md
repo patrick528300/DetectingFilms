@@ -11,11 +11,11 @@ there are some limitations to use film as files, because of the following reason
    blix(use bleach + fixer), water washing and stabilizing (use stabilizer, optional). Improper chemical processing such as uneven development, fading liquid effect,
    and incomplete reaction can destroy the content of films, making them unable to rea. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
    color patches, accidental imprints, et al.
-3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could lead to dye removal as well due to friction.
+3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could also lead to dye removal due to friction.
 
 
 
-To detect whether a negative film is readable in a short time, I developed and train a ResNet 18 model. I marked the films 1 if the film is normal or 0 otherwise. The pipeline and the structure of 
+To detect whether a negative film is **readable**, I developed and train a ResNet 18 model. I marked the films 1 if the film is normal or 0 otherwise. The pipeline and the structure of 
 the model will be discussed later.  
 
 ## Examples of the films from the dataset
@@ -37,13 +37,34 @@ here are the abnormal films:
 | Negative | Positive | Issue | Reason |
 |----------|----------|-------|--------|
 |![noise](images/noise.jpeg) | ![noise](images/positive_image_noise.jpeg) | Noise | Underexposure |
-|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fading Developer |
 |![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
-|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fading Developer |
+|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fade Developer |
+|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fade Developer |
 |![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
 |![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
 
+**Additional Info**
 
-**Some films can have more than 1 problem.**
+1. Some films can have more than 1 problem.
+2. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
+3. Slightly color-shifted photos are considered normal as they are readable.
 
-**Color shifted photos are considered normal as they are readable.**
+## Model Structure
+
+The model I used is ResNet18, whose basic structure is a ResNet block. 
+
+A Residual Network block consists of the following structures: (reference from https://d2l.ai/chapter_convolutional-modern/resnet.html)
+1. 2 layers, each layer has a convolutional layer and a batch norm layer
+2. a bypassing channel which adds input X with 1 or Identity matrix
+3. adding the results coming from the 2 layers and the bypassing channel if there is a bypassing channel, otherwise adding X with the 2 layers
+4. then the last layer with a conv layer and a batch norm layer
+
+The resnet 18 sequential network consists of: (reference from https://d2l.ai/chapter_convolutional-modern/resnet.html)
+
+Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypass -> Resnet Block w/ bypass -> Resnet Block w/o bypass -> Resnet Block w/ bypass -> Resnet Block w/o bypass - >Resnet Block w/ bypass -> Resnet Block w/o bypass -> AveragePool -> FC layer
+
+## Training Pipeline
+
+
+
+
