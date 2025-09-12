@@ -86,6 +86,11 @@ After 7th epoch, val loss,
 Val loss 
 
 
+**Confusion Matrix Changes**
+<img width="584" height="481" alt="image" src="https://github.com/user-attachments/assets/a44c06a7-d804-4d5a-a757-305075757154" />
+
+
+
 
 
 
