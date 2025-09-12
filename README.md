@@ -76,7 +76,15 @@ Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypa
 
 ## Results and Analysis
 This is the plot about the changes of train loss, val loss, accuracy rate, and f1 score in the training 10 epoches.
-**train loss**
+<img width="538" height="390" alt="image" src="https://github.com/user-attachments/assets/e9c7908d-53fb-4f53-96b7-3446c52c06b7" />  
+**train loss** keeps dreasing in the 10 epoches, meaning it keeps learning in the training process. 
+**val loss, accuracy rate, and f1 score** flutuate at the beginning of the training process. Val loss increases then decreases; accuracy rate and f1 score decrease then increase. It explains the model might tend to believe most of the photos to be all 1 or all 0.
+
+After 7th epoch, val loss,  
+**train loss, val loss, accuracy rate, and f1 score** converge  
+**accuracy rate** remains at ~ 80%. **f1 score** remains at ~ 90%. This can be explained by the unbalanced dataset, since normal:abnormal ~ 7:3, therefore, the accuracy rate might be underestimated. 
+Val loss 
+
 
 
 
