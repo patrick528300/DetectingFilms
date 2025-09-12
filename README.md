@@ -9,7 +9,7 @@ there are some limitations to use film as files, because of the following reason
    noise would be enriched, making the pictures not readable.  
 2. **Improper chemical processing** After filming, chemical processing is needed for people to see what they have shot. Chemical processing includes developing (use developer liquid),
    blix(use bleach + fixer), water washing and stabilizing (use stabilizer, optional). Improper chemical processing such as uneven development, fading liquid effect,
-   and incomplete reaction can destroy the content of films, making them unable to rea. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
+   and incomplete reaction can destroy the content of films, making them unable to read. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
    color patches, accidental imprints, et al.
 3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could also lead to dye removal due to friction.
 
