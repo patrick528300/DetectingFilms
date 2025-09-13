@@ -48,7 +48,7 @@ here are the abnormal films:
 1. Normal:Abonormal ~ 7:3 
 2. Some films can have more than 1 problem.
 3. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
-4. Slightly color-shifted photos are considered normal as they are readable.
+4. Insufficient-detailed photos and slightly color-shifted photos are considered normal as they are readable.
 5. All 494 film clips were taken by me between July and September in 2025. I used Nikon F2 and Nikon Nikkormat FT3 as my cameras, and Kodak Gold 200, Kodak UltraMax 400, Kodak ColorPlus 200, and Fujifim 400 for my color negatives. All color negatives were developed by me and retaken by phone. 
 
 ## Model Structure
@@ -96,8 +96,10 @@ recall rate: 88.889% -> 88.889% of the actual normal pictures are classified cor
 | Tag | Negative | Positive | Label | Predict | Explanation |
 |-----|----------|----------|-------|---------|-------------|
 |449.jpeg|![patches](/images/patches.jpeg)|![patches](/images/positive_image_patches.jpeg)|0|1|The model detected its edges but ignore its patches|
-
-
+|263.jpeg|![263](/images/263.jpeg)|![263](/images/positive_image263.jpeg)|1|0|The model did not catch edges due to shaking, but the picture is clean|
+|273.jpeg|![273](/images/273.jpeg)|![273](/images/positive_image273.jpeg)|1|0|The picture is likely to be mislabeled|
+|403.jpeg|![403](/images/273.jpeg)|![403](/images/positive_image273.jpeg)|1|0|The picture has some noise but still readable, therefore it is labeled 1 but the model predicted 0|
+|141.jpeg|![141](/images/141.jpeg)|![403](/images/141.jpeg)|1|0|The picture is underexposed, but noise is bearable.
 
 
 
