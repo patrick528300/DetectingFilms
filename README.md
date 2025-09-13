@@ -5,7 +5,7 @@
 Before digital cameras and image technology (2000s), film cameras and analog technology were the only choice for photography / movies, leaving films and negatives for file storage. But 
 there are some limitations to use film as files, because of the following reasons.  
 
-1. **Overexposure/Underexposure**. Overexposuing or underexposing makes the films unable to catch sufficient details. After converting negatives into normal images,
+1. **Overexposure/Underexposure**. Overexposuing or underexposing makes the films have more noise than others. After converting negatives into normal images,
    noise would be enriched, making the pictures not readable.  
 2. **Improper chemical processing** After filming, chemical processing is needed for people to see what they have shot. Chemical processing includes developing (use developer liquid),
    blix(use bleach + fixer), water washing and stabilizing (use stabilizer, optional). Improper chemical processing such as uneven development, fading liquid effect,
@@ -13,7 +13,8 @@ there are some limitations to use film as files, because of the following reason
    color patches, accidental imprints, et al.
 3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could also lead to dye removal due to friction.
 
-
+### Films I am trying to detect whether it is problematic:
+_Too Much Noise_ / _Big Blank Area_ / _Color Patches_ / _Holes On Films_ / _Residual Blank Spots_ / _Dye Removal_
 
 To detect whether a negative film is **readable**, I developed and train a ResNet 18 model. I marked the films 1 if the film is normal or 0 otherwise. The pipeline and the structure of 
 the model will be discussed later.  
@@ -67,7 +68,7 @@ Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypa
 
 ## Training Pipeline
 1. Collect photos of the negatives, and use cvt2pos function to obtain their positive images. Label the condition of films manually (eg, 1 for normal, 0 for abnormal) 
-2. Load the same photos of film clips into two datasets. One is pandas.DataFrame, used for retrieving pictures given indices.  Another one is a Custumized data set used for data split into different batches for training and testing.
+2. Load the same photos of film clips into two datasets. One is pandas.DataFrame, used for retrieving pictures given indices.  Another one is a Custumized data set used for data split into different batches for training and testing. (Customized Dataset reference: https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html)
 3. Transform the pictures in Custumized data set to be of the same shape (244 x 244), then split them into training and teating batches.
 4. Create Resnet Block and ResNet18.
 5. Train the model for 10 epoches. For each epoch, test the model on the test data batches, and record the accuracy rate, training loss, validation loss, and f1 score. Display the confusion matrix every 2 epoches. Use AdamW as the optimizer. Use ReduceLROnPlateau to regulate the learning rate in case the learning performance gets stuck. F1 score is an estimator when both classes (normal, abnormal) is not even.
@@ -96,10 +97,21 @@ recall rate: 88.889% -> 88.889% of the actual normal pictures are classified cor
 | Tag | Negative | Positive | Label | Predict | Explanation |
 |-----|----------|----------|-------|---------|-------------|
 |449.jpeg|![patches](/images/patches.jpeg)|![patches](/images/positive_image_patches.jpeg)|0|1|The model detected its edges but ignore its patches|
-|263.jpeg|![263](/images/263.jpeg)|![263](/images/positive_image263.jpeg)|1|0|The model did not catch edges due to shaking, but the picture is clean|
-|273.jpeg|![273](/images/273.jpeg)|![273](/images/positive_image273.jpeg)|1|0|The picture is likely to be mislabeled|
-|403.jpeg|![403](/images/273.jpeg)|![403](/images/positive_image273.jpeg)|1|0|The picture has some noise but still readable, therefore it is labeled 1 but the model predicted 0|
-|141.jpeg|![141](/images/141.jpeg)|![403](/images/141.jpeg)|1|0|The picture is underexposed, but noise is bearable.
+|273.jpeg|![273](/images/273.jpeg)|![273](/images/positive_image273.jpeg)|1|0|The picture is likely to be mislabeled. High Noise|
+|403.jpeg|![403](/images/403.jpeg)|![403](/images/positive_image403.jpeg)|1|0|The picture has some noise but still readable, therefore it is labeled 1 but the model predicted 0|
+|141.jpeg|![141](/images/141.jpeg)|![403](/images/positive_image141.jpeg)|1|0|The picture is underexposed, but noise is bearable.
+
+
+# Limitation
+1. Mislabeling can be a significant problem. Tere is no strict rubric to determine whether a film is readable or destroyed. Some worse pictures can be labeled as 'normal' condition because they could be read despite high noise, or because they are clean despite lack of details. In the dataset, the number of pictures labeled 'abnormal' is underestimated.
+2. The way of labeling could cause a domain shift. I manually labeled the condition of the negatives based on seeing their inverted pictures. The method to invert the negatives is by taking their pictures with phone, then inverted by cvt2pos function. Strictly speaking it is not professional. A professional way is to use film scanner to scan negatives. Poor scanning adds in additional noise and color shift into the positive images, so some films might be determined 'abnormal' although their condition is actually 'normal'. However, the goal is to detect whether the films have normal condition, so the model should be trained on films, not inverted pictures, but humans find it hard to detect the film conditions by purely looking to the negatives. Therefore, I remain using the method: manually label pictures by seeing inverted images, then train models on negatives.
+3. The dataset is unbalanced (normal:abnormal ~ 7:3). The model is more likely to classify a photo to be a normal picture. In real life, abnormal pictures might just be a minority. But when there comes a query, we should assume the probability of normal/abnormal is ~ 1:1.
+4. The model is only trained 10 epoches. The model can be trained for more epoches and set an earlt stop to prevent it from over fitting. 
+
+# Further Study and Use
+For further study and improvement, rechecking all the labels and discussing whether they are all labeled correctly are needed. The model can also be trained for more epoches, and set an earlt stop to prevent it from over fitting. 
+
+This model can be used for film photographers to filter the pictures that they are not satisfied with. This model can also help historical museums / archives to discover badly conditional negatives in a short period of time, and determine if it is actually damaged and if it is still remedable. 
 
 
 
