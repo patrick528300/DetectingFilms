@@ -24,24 +24,24 @@ Due to privacy issue, I am not able to provide all the pictures used for trainin
 Use cvt2pos function in Convert.ipynb to convert from negative films to positive (readable) images. 
 
 here are the normal films:
-| Negative | Positive |
-|----------|--------- |
-|![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
-|![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
-|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
-|![Street](images/mountain.jpeg) | ![Street](images/positive_image_mountain.jpeg) |
-|![Street](images/wait.jpeg) | ![Street](images/positive_image_wait.jpeg) |
-|![Street](images/flower.jpeg) | ![Street](images/positive_image_flower.jpeg) |
+| Tag | Negative | Positive |
+|-----|----------|--------- |
+|482.jpeg|![Otay Mesa Border](images/otay_mesa.jpeg) | ![Otay Mesa Border](images/positive_image_otay_mesa.jpeg) |
+|21.jpeg|![Beach](images/beach.jpeg) | ![Beach](images/positive_image_beach.jpeg) |
+|317.jpeg|![Train](images/train.jpeg) | ![Train](images/positive_image_train.jpeg) |
+|336.jpeg|![Mountain](images/mountain.jpeg) | ![Street](images/positive_image_mountain.jpeg) |
+|233.jpeg|![Wait](images/wait.jpeg) | ![Street](images/positive_image_wait.jpeg) |
+|264.jpeg|![Flower](images/flower.jpeg) | ![Street](images/positive_image_flower.jpeg) |
 
 here are the abnormal films:
-| Negative | Positive | Issue | Reason |
-|----------|----------|-------|--------|
-|![noise](images/noise.jpeg) | ![noise](images/positive_image_noise.jpeg) | Noise | Underexposure |
-|![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
-|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fade Developer |
-|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fade Developer |
-|![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
-|![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
+| Tag | Negative | Positive | Issue | Reason |
+|-----|----------|----------|-------|--------|
+|399.jpeg|![noise](images/noise.jpeg) | ![noise](images/positive_image_noise.jpeg) | Noise | Underexposure |
+|19.jpeg|![blank](images/blank.jpeg) | ![blank](images/positive_image_blank.jpeg) | Big Blank Area | Uneven Development |
+|449.jpeg|![patches](images/patches.jpeg) | ![patches](images/positive_image_patches.jpeg) | Color Patches | Fade Developer |
+|396.jpeg|![spots](images/residual_spots.jpeg) | ![residual spots](images/positive_image_residual_spots.jpeg) | Residual Spot | Fade Developer |
+|8.jpeg|![holes](images/hole.jpeg) | ![holes](images/positive_image_hole.jpeg) | Holes | Folding Films / Improper storage |
+|193.jpeg|![dye removal](images/dye_removal.jpeg) | ![holes](images/positive_image_dye_removal.jpeg) | Dye Removal | Re-coiling Films |
 
 **Additional Info**
 
@@ -70,7 +70,7 @@ Conv -> BatchNorm -> MaxPool -> Resnet Block w/o bypass -> Resnet Block w/o bypa
 2. Load the same photos of film clips into two datasets. One is pandas.DataFrame, used for retrieving pictures given indices.  Another one is a Custumized data set used for data split into different batches for training and testing.
 3. Transform the pictures in Custumized data set to be of the same shape (244 x 244), then split them into training and teating batches.
 4. Create Resnet Block and ResNet18.
-5. Train the model for 10 epoches. For each epoch, test the model on the test data batches, and record the accuracy rate, training loss, validation loss, and f1 score. Use AdamW as the optimizer. Use ReduceLROnPlateau to regulate the learning rate in case the learning performance gets stuck. F1 score is an estimator when both classes (normal, abnormal) is not even.
+5. Train the model for 10 epoches. For each epoch, test the model on the test data batches, and record the accuracy rate, training loss, validation loss, and f1 score. Display the confusion matrix every 2 epoches. Use AdamW as the optimizer. Use ReduceLROnPlateau to regulate the learning rate in case the learning performance gets stuck. F1 score is an estimator when both classes (normal, abnormal) is not even.
 6. Plot the changes of accuracy rate, training loss, validation loss, and F1 score in the 10 epoches. Plot the changes of learning rate as a reference.
 7. Test the model on the test data batches. Compute the accuracy rate, f1 score, precision rate, and recall rate. Then print all the misclassified pictures for further correction.
 
@@ -87,7 +87,17 @@ Val loss
 
 
 **Confusion Matrix Changes**
-<img width="584" height="481" alt="image" src="https://github.com/user-attachments/assets/a44c06a7-d804-4d5a-a757-305075757154" />
+The confusion matrix shows that at the beginning of the training process, the model predict most of the photos to be all 0 (102 were predicted 0 and only 21 were predicted 1). During the remaining training epoches, more pictures were predicted to be 1. At 10th epoch, FP:FN ~ 1:1, becoming balanced.
+
+precision rate: 86.957% -> 86.957% of the pictures classified as normal are actually normal. 
+recall rate: 88.889% -> 88.889% of the actual normal pictures are classified correctly. 
+
+**Some Wrong Result Analysis**
+| Tag | Negative | Positive | Label | Predict | Explanation |
+|-----|----------|----------|-------|---------|-------------|
+|449.jpeg|![patches](/images/patches.jpeg)|![patches](/images/positive_image_patches.jpeg)|0|1|The model detected its edges but ignore its patches|
+
+
 
 
 
