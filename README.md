@@ -6,10 +6,10 @@ Before digital cameras and image technology (2000s), film cameras and analog tec
 there are some limitations to use film as files, because of the following reasons.  
 
 1. **Overexposure/Underexposure**. Overexposuing or underexposing makes the films have more noise than others. After converting negatives into normal images,
-   noise would be enriched, making the pictures not readable.  
+   noise would be enriched, so the pictures are not readable.  
 2. **Improper chemical processing** After filming, chemical processing is needed for people to see what they have shot. Chemical processing includes developing (use developer liquid),
    blix(use bleach + fixer), water washing and stabilizing (use stabilizer, optional). Improper chemical processing such as uneven development, fading liquid effect,
-   and incomplete reaction can destroy the content of films, making them unable to read. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
+   and incomplete reaction can destroy the content of films, so films cannot be read. Improper chemical processing directly leads to large blank areas on films, artifacts, residual blank spots,
    color patches, accidental imprints, et al.
 3. **Improper storage**. Holes can be on films. Long term storage could lead to color fading. Re-coiling films could also lead to dye removal due to friction.
 
@@ -46,11 +46,15 @@ here are the abnormal films:
 
 **Additional Info**
 
-1. Normal:Abonormal ~ 7:3 
+1. Normal:Abnormal ~ 7:3 
 2. Some films can have more than 1 problem.
 3. Different problems can lead to similar consequence. (e.g. dye removal & color patches)
 4. Insufficient-detailed photos and slightly color-shifted photos are considered normal as they are readable.
 5. All 494 film clips were taken by me between July and September in 2025. I used Nikon F2 and Nikon Nikkormat FT3 as my cameras, and Kodak Gold 200, Kodak UltraMax 400, Kodak ColorPlus 200, and Fujifim 400 for my color negatives. All color negatives were developed by me and retaken by phone. 
+
+## Requirements
+python 3  
+pytorch, scikit-learn, matplotlib, openCV, PIL, numpy, pandas
 
 ## Model Structure
 
