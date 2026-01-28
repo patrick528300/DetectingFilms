@@ -109,10 +109,7 @@ recall rate: 88.889% -> 88.889% of the actual normal pictures are classified cor
 By using Grad-CAM, we can have a heatmap on better result anazysis: 
 | Tag | Result | Label | Predict | Explanation |
 |-----|----------|----------|-------|---------|-------------|
-|449.jpeg|1|1|The model detected its edges but ignore its patches|
-|273.jpeg|![273](/images/273.jpeg)|![273](/images/positive_image273.jpeg)|1|0|The picture is likely to be mislabeled. High Noise|
-|403.jpeg|![403](/images/403.jpeg)|![403](/images/positive_image403.jpeg)|1|0|The picture has some noise but still readable, therefore it is labeled 1 but the model predicted 0|
-|141.jpeg|![141](/images/141.jpeg)|![403](/images/positive_image141.jpeg)|1|0|The picture is underexposed, but noise is bearable.
+|149.jpeg | 
 presentation on Grad-CAM and this project: https://docs.google.com/presentation/d/1__icmV5z5hThYELkseOccWBPEUJx_JBfTzj4TcE6fvA/edit?usp=sharing
 
 
