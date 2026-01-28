@@ -109,7 +109,23 @@ recall rate: 88.889% -> 88.889% of the actual normal pictures are classified cor
 By using Grad-CAM, we can have a heatmap on better result anazysis: 
 | Tag | Result | Label | Predict | Explanation |
 |-----|----------|----------|-------|---------|-------------|
-|149.jpeg | 
+|149.jpeg |<img width="1459" height="485" alt="image" src="https://github.com/user-attachments/assets/8785b12f-b49a-4a20-97cf-56c791391705" /> | 1 | 1 | The crowds are the subject of the image, and it is very clear: picture is not corrupted. |
+| 235.jpeg | <img width="1455" height="482" alt="image" src="https://github.com/user-attachments/assets/b98f4c17-0990-4388-b831-0f906b6404fa" /> | 1 | 1 | The ferry is the object, and it is very clear. No sign of being corrupted. |
+| 5.jpeg | <img width="1451" height="482" alt="image" src="https://github.com/user-attachments/assets/eeda358a-e67b-452c-967d-dad0613793a6" /> | 0 | 0 | Grad-CAM circles out the upper left region - corrupted area. As long as there is a corrupted area, then the image is corrupted |
+| 422.jpeg | <img width="1469" height="479" alt="image" src="https://github.com/user-attachments/assets/c69d7bda-7d0c-493c-8714-781101dc40c2" /> | 1 | 0 | No clear subject of the image, and too few details due to underexposure, Grad-CAM is not sensitive. Though there is no corrupted region, due to less-significant gradient change, Grad-CAM thinks there is a corrupted region, and therefore result in false negative. |
+| 403.jpeg | <img width="1465" height="479" alt="image" src="https://github.com/user-attachments/assets/bb658115-8c00-4d73-a3a7-199c27b35d2a" /> | 1 | 0 | Due to underexposure, the picture looks flat, and details / layers lost. Grad-CAM thinks the image is corrupted due to few details. Therefore, it results in false negative.|
+| 437.jpeg | <img width="1470" height="487" alt="image" src="https://github.com/user-attachments/assets/cd64d219-c54f-4161-a74d-de78fa534630" /> | 1 | 0 | Due to underexposure, the details are missing in the truck, so Grad-CAM thinks the image is corrupted due to few details. Therefore, it results in false negative.|
+| 26.jpeg | <img width="1470" height="474" alt="image" src="https://github.com/user-attachments/assets/33503898-6043-4c53-9182-9c09ef1ae33b" /> | 0 | 0 | **model thinks differently than I expect** I expected the corrupted region in the middle should be circled out. However, Grad-CAM bypassed it. It might detect there is a big empty region (without details) in the middle of the image, so it thinks the image is corrupted, which turns out to be true. |
+| 423.jpeg | <img width="1470" height="487" alt="image" src="https://github.com/user-attachments/assets/02e1fa66-1f5d-4abc-9413-8a4c576fa4c0" /> | 0 | 0 | **model thinks differently than I expect** Expect model to draw something out, but since there is no details because of underexposure, the model could not find any gradient changes too, therefore it thinks the whole image is corrupted. 
+
+
+
+
+
+
+
+
+
 presentation on Grad-CAM and this project: https://docs.google.com/presentation/d/1__icmV5z5hThYELkseOccWBPEUJx_JBfTzj4TcE6fvA/edit?usp=sharing
 
 
