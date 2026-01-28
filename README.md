@@ -108,7 +108,7 @@ recall rate: 88.889% -> 88.889% of the actual normal pictures are classified cor
 **Grad-CAM** 
 By using Grad-CAM, we can have a heatmap on better result anazysis: 
 | Tag | Result | Label | Predict | Explanation |
-|-----|----------|----------|-------|---------|-------------|
+|-----|----------|----------|-------|---------|
 |149.jpeg |<img width="1459" height="485" alt="image" src="https://github.com/user-attachments/assets/8785b12f-b49a-4a20-97cf-56c791391705" /> | 1 | 1 | The crowds are the subject of the image, and it is very clear: picture is not corrupted. |
 | 235.jpeg | <img width="1455" height="482" alt="image" src="https://github.com/user-attachments/assets/b98f4c17-0990-4388-b831-0f906b6404fa" /> | 1 | 1 | The ferry is the object, and it is very clear. No sign of being corrupted. |
 | 5.jpeg | <img width="1451" height="482" alt="image" src="https://github.com/user-attachments/assets/eeda358a-e67b-452c-967d-dad0613793a6" /> | 0 | 0 | Grad-CAM circles out the upper left region - corrupted area. As long as there is a corrupted area, then the image is corrupted |
