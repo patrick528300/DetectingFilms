@@ -134,7 +134,18 @@ presentation on Grad-CAM and this project: https://docs.google.com/presentation/
 2. The way of labeling could cause a domain shift. I manually labeled the condition of the negatives based on seeing their inverted pictures. The method to invert the negatives is by taking their pictures with phone, then inverted by cvt2pos function. Strictly speaking it is not professional. A professional way is to use film scanner to scan negatives. Poor scanning adds in additional noise and color shift into the positive images, so some films might be determined 'abnormal' although their condition is actually 'normal'. However, the goal is to detect whether the films have normal condition, so the model should be trained on films, not inverted pictures, but humans find it hard to detect the film conditions by purely looking to the negatives. Therefore, I remain using the method: manually label pictures by seeing inverted images, then train models on negatives.
 3. The dataset is unbalanced (normal:abnormal ~ 7:3). The model is more likely to classify a photo to be a normal picture. In real life, abnormal pictures might just be a minority. But when there comes a query, we should assume the probability of normal/abnormal is ~ 1:1.
 4. The dataset is too small (494 pictures). Data argumentation should be considered to enlarge the dataset, to increase accuracy and prevent over-fitting.
-5. The model is only trained 10 epoches. The model can be trained for more epoches and set an earlt stop to prevent it from over fitting. 
+5. The model is only trained 10 epoches. The model can be trained for more epoches and set an earlt stop to prevent it from over fitting.
+
+## Project Summary
+
+Developed a ResNet18-based computer vision system to classify whether film negatives are readable or damaged.
+
+Key Contributions:
+- Built and labeled a dataset of 494 self-collected film negatives.
+- Designed an end-to-end preprocessing, training, and evaluation pipeline.
+- Achieved 82% classification accuracy using ResNet18.
+- Applied Grad-CAM for interpretability analysis.
+- Investigated limitations of attention-based explanations on noisy real-world visual data.
 
 # Further Study and Use
 For further study and improvement, rechecking all the labels and discussing whether they are all labeled correctly are needed. The model can also be trained for more epoches, and set an earlt stop to prevent it from over fitting. 
